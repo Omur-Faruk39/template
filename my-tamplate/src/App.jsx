@@ -1,10 +1,13 @@
+import Main from "./components/main";
+
 function App() {
+  console.log(import.meta.env);
 
   return (
     <>
-      hello world1
+      <Main />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
