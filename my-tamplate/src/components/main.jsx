@@ -7,6 +7,10 @@ function Main() {
       <p>Welcome to my template!</p>
       <p>Feel free to customize it as you like.</p>
       <p>Happy coding!</p>
+
+      <p>nothing special
+        
+      </p>
     </>
   );
 }
