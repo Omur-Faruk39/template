@@ -1,12 +1,17 @@
-import Main from "./components/main";
+import React, { useRef, useState } from "react";
+import state from "./libs/state";
 
 function App() {
-  console.log(import.meta.env);
+  const [data, fun] = state();
+
+  console.log("hello world");
 
   return (
-    <>
-      <Main />
-    </>
+    <div>
+      <h1>Counter without Re-rendering</h1>
+      <div>Counter: {data}</div>
+      <button onClick={fun}>Increment Counter</button>
+    </div>
   );
 }
 
