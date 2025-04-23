@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/6.0.0/tesseract.min.js"
+      integrity="sha512-A0EfwPGHRuABn5Tj6XKUwAy966qF1ZLfsz2rtDriABefNTW3HYoE8v2u3ILnBlK3FTnmYnzeG1cMkwuaHmxAkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    hello worl
+
+    <script>
+      Tesseract.recognize(
+        "image.png", // Path to the image
+        "eng", // Language code
+        {
+          logger: (info) => console.log(info), // Log progress
+        }
+      ).then(({ data: { text } }) => {
+        console.log(text); // Extracted text
+      });
+    </script>
+  </body>
+</html>
