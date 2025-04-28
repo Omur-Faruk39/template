@@ -7,14 +7,14 @@ const breakSound = document.createElement("audio");
 const drop = document.createElement("audio");
 let rotatedShape;
 
-bgm.setAttribute("src", "./assets/bgm.mp3");
-bgm.muted = true;
+// bgm.setAttribute("src", "./assets/bgm.mp3");
+// bgm.muted = true;
 
-breakSound.setAttribute("src", "./assets/break.mp3");
-breakSound.muted = true;
+// breakSound.setAttribute("src", "./assets/break.mp3");
+// breakSound.muted = true;
 
-drop.setAttribute("src", "./assets/drop.mp3");
-drop.muted = true;
+// drop.setAttribute("src", "./assets/drop.mp3");
+// drop.muted = true;
 
 // init board
 for (let row = 0; row < BOARD_HEIGHT; row++) {
@@ -79,7 +79,9 @@ function randomTetromino() {
     shape: tetromino.shape,
     color: tetromino.color,
     row: 0,
-    col: Math.floor(Math.random() * (BOARD_WIDTH - tetromino.shape[0].length + 1)),
+    col: Math.floor(
+      Math.random() * (BOARD_WIDTH - tetromino.shape[0].length + 1)
+    ),
   };
 }
 
@@ -94,7 +96,7 @@ function drawTetromino() {
   const row = currentTetromino.row;
   const col = currentTetromino.col;
 
-  for (let r = 0; r < shape.length; r++) {
+  shape.forEach((item, r, shape) => {
     for (let c = 0; c < shape[r].length; c++) {
       if (shape[r][c]) {
         const block = document.createElement("div");
@@ -106,7 +108,21 @@ function drawTetromino() {
         document.getElementById("game_board").appendChild(block);
       }
     }
-  }
+  });
+
+  // for (let r = 0; r < shape.length; r++) {
+  //   for (let c = 0; c < shape[r].length; c++) {
+  //     if (shape[r][c]) {
+  //       const block = document.createElement("div");
+  //       block.classList.add("block");
+  //       block.style.backgroundColor = color;
+  //       block.style.top = (row + r) * 24 + "px";
+  //       block.style.left = (col + c) * 24 + "px";
+  //       block.setAttribute("id", `block-${row + r}-${col + c}`);
+  //       document.getElementById("game_board").appendChild(block);
+  //     }
+  //   }
+  // }
 }
 
 // Erase tetromino from board
@@ -134,7 +150,12 @@ function canTetrominoMove(rowOffset, colOffset) {
         let row = currentTetromino.row + i + rowOffset;
         let col = currentTetromino.col + j + colOffset;
 
-        if (row >= BOARD_HEIGHT || col < 0 || col >= BOARD_WIDTH || (row >= 0 && board[row][col] !== 0)) {
+        if (
+          row >= BOARD_HEIGHT ||
+          col < 0 ||
+          col >= BOARD_WIDTH ||
+          (row >= 0 && board[row][col] !== 0)
+        ) {
           return false;
         }
       }
@@ -151,7 +172,12 @@ function canTetrominoRotate() {
         let row = currentTetromino.row + i;
         let col = currentTetromino.col + j;
 
-        if (row >= BOARD_HEIGHT || col < 0 || col >= BOARD_WIDTH || (row >= 0 && board[row][col] !== 0)) {
+        if (
+          row >= BOARD_HEIGHT ||
+          col < 0 ||
+          col >= BOARD_WIDTH ||
+          (row >= 0 && board[row][col] !== 0)
+        ) {
           return false;
         }
       }
@@ -379,7 +405,12 @@ function canGhostTetrominoMove(rowOffset, colOffset) {
         let row = currentGhostTetromino.row + i + rowOffset;
         let col = currentGhostTetromino.col + j + colOffset;
 
-        if (row >= BOARD_HEIGHT || col < 0 || col >= BOARD_WIDTH || (row >= 0 && board[row][col] !== 0)) {
+        if (
+          row >= BOARD_HEIGHT ||
+          col < 0 ||
+          col >= BOARD_WIDTH ||
+          (row >= 0 && board[row][col] !== 0)
+        ) {
           return false;
         }
       }
