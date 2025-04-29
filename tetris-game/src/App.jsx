@@ -1,39 +1,24 @@
 import React from "react";
 import Block from "./components/Block";
-import randomNum from "./logic/randomNum";
-
-const block = [
-  {
-    block: [
-      [1, 1],
-      [1, 1],
-    ],
-    color: "red",
-  },
-  {
-    block: [
-      [0, 2, 0],
-      [2, 2, 2],
-    ],
-    color: "green",
-  },
-];
-
-const size = randomNum(block.length);
-const shape = block[size];
+import shapeArr, { shape } from "./logic/shape";
 
 function App() {
-  const arr = [];
+  // console.log(arr);
+  const arr = shapeArr();
 
-  for (let i1 = 1; i1 <= shape.block.length; i1++) {
-    for (let i2 = 1; i2 <= shape.block[i1].length; i2++) {
-      if (shape.block[i1][i2] > 0) {
-        arr.push([`${i2}/ ${i1}/ ${i2 + 1}/ ${i1 + 1}`]);
-      }
+  const [height, setHeight] = React.useState(0);
+
+  React.useEffect(() => {
+    let interval;
+    if (height >= 20) {
+      clearInterval(interval);
+    } else {
+      interval = setInterval(() => {
+        setHeight((prev) => prev + 1);
+      }, 500);
     }
-  }
-
-  console.log(arr);
+    return () => clearInterval(interval);
+  }, [height]);
 
   return (
     <div className="bord">
@@ -42,8 +27,13 @@ function App() {
         style={{
           height: `${shape.block.length * 25}px`,
           width: `${shape.block[0].length * 25}px`,
+          top: `${height * 25}px`,
         }}
-      ></div>
+      >
+        {arr.map((item, index) => (
+          <Block key={index} color={shape.color} position={item} />
+        ))}
+      </div>
     </div>
   );
 }
