@@ -17,10 +17,15 @@ const block = [
   },
 ];
 
-const size = randomNum(block.length);
-const shape = block[size];
+let shape;
+
+const size = () => {
+  const size = randomNum(block.length);
+  shape = block[size];
+};
 
 function shapeArr() {
+  size();
   const arr = [];
 
   for (let i1 = 1; i1 <= shape.block.length; i1++) {
@@ -30,8 +35,8 @@ function shapeArr() {
       }
     }
   }
-  return arr;
+
+  return { arr, shape };
 }
 
 export default shapeArr;
-export { shape };
