@@ -1,42 +1,411 @@
-import randomNum from "./randomNum.js";
+// import randomNum from "./randomNum.js";
 
 const block = [
   {
-    block: [
+    shape: [
       [1, 1],
       [1, 1],
+    ],
+    color: "#ffd800",
+  },
+  {
+    shape: [
+      [0, 2, 0],
+      [2, 2, 2],
+    ],
+    color: "#7925DD",
+  },
+  {
+    shape: [
+      [0, 3, 3],
+      [3, 3, 0],
+    ],
+    color: "orange",
+  },
+  {
+    shape: [
+      [4, 4, 0],
+      [0, 4, 4],
     ],
     color: "red",
   },
   {
-    block: [
-      [0, 2, 0],
-      [2, 2, 2],
+    shape: [
+      [5, 0, 0],
+      [5, 5, 5],
     ],
     color: "green",
   },
+  {
+    shape: [
+      [0, 0, 6],
+      [6, 6, 6],
+    ],
+    color: "#ff6400 ",
+  },
+  { shape: [[7, 7, 7, 7]], color: "#00b5ff" },
 ];
 
-let shape;
-
-const size = () => {
-  const size = randomNum(block.length);
-  shape = block[size];
-};
-
-function shapeArr() {
-  size();
-  const arr = [];
-
-  for (let i1 = 1; i1 <= shape.block.length; i1++) {
-    for (let i2 = 1; i2 <= shape.block[i1 - 1].length; i2++) {
-      if (shape.block[i1 - 1][i2 - 1] > 0) {
-        arr.push(`${i1}/ ${i2}/ ${i1 + 1}/ ${i2 + 1}`);
-      }
-    }
-  }
-
-  return { arr, shape };
+function eachBlock() {
+  return {
+    r1: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r2: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r3: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r4: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r5: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r6: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r7: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r8: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r9: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r10: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r11: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r12: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r13: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r14: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r15: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r16: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r17: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r18: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r19: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r20: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r21: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+    r22: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ],
+  };
 }
 
-export default shapeArr;
+// let shape;
+
+// const size = () => {
+//   const size = randomNum(block.length);
+//   shape = block[size];
+// };
+
+export { block, eachBlock };
+// import randomNum from "./randomNum.js";
+
+// const block = [
+//   {
+//     block: [
+//       [1, 1],
+//       [1, 1],
+//     ],
+//     color: "red",
+//   },
+//   {
+//     block: [
+//       [0, 2, 0],
+//       [2, 2, 2],
+//     ],
+//     color: "green",
+//   },
+// ];
+
+// let shape;
+
+// const size = () => {
+//   const size = randomNum(block.length);
+//   shape = block[size];
+// };
+
+// function shapeArr() {
+//   size();
+//   const arr = [];
+
+//   for (let i1 = 1; i1 <= shape.block.length; i1++) {
+//     for (let i2 = 1; i2 <= shape.block[i1 - 1].length; i2++) {
+//       if (shape.block[i1 - 1][i2 - 1] > 0) {
+//         arr.push(`${i1}/ ${i2}/ ${i1 + 1}/ ${i2 + 1}`);
+//       }
+//     }
+//   }
+
+//   return { arr, shape };
+// }
+
+// export default shapeArr;

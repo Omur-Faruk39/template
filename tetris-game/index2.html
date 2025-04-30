@@ -9,20 +9,25 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        height: 100px;
-        width: 100px;
         background-color: aqua;
+        width: 100px;
+        height: 100px;
       }
-      
+
       .div1 {
-        grid-area: 2 / 2 / 3 / 3;
+        grid-area: 1/1/2/2;
         background-color: red;
+      }
+      .div2 {
+        grid-area: 1/1/2/2;
+        background-color: blue;
       }
     </style>
   </head>
   <body>
     <div class="grid">
       <div class="div1"></div>
+      <div class="div2"></div>
     </div>
   </body>
 </html>

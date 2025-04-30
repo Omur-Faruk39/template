@@ -16,7 +16,10 @@ body {
 
 .bord {
   height: 558px;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(22, 1fr);
+  gap: 0;
   width: 308px;
   border: solid #3e5eba 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
@@ -28,9 +31,4 @@ body {
   width: 25px;
   border: solid black 0.5px;
   box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5);
-}
-
-.shape {
-  position: absolute;
-  display: grid;
 }
