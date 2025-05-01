@@ -5,9 +5,11 @@ import { eachBlock } from "./logic/shape";
 import { randomShape, randomNum } from "./logic/randomNum";
 import { isFree } from "./logic/helper";
 import CreatingBlock from "./components/CreatingBlock";
+import Block from "./components/Block";
 
 function App() {
   // const [blockBool, setBlockBool] = React.useState(eachBlock());
+  const [savingBlock, setSavingBlock] = React.useState([]);
   const [block, setBlock] = React.useState({
     ...randomShape(),
     angle: 0,
@@ -20,6 +22,7 @@ function App() {
       interval = setInterval(() => {
         if (isFree(block)) {
           clearInterval(interval);
+          setSavingBlock((pre) => [...pre, block]);
           setBlock();
         } else {
           setBlock((prev) => ({
@@ -31,6 +34,7 @@ function App() {
         }
       }, 500);
     } else {
+      
       setBlock({ ...randomShape(), angle: 0, aria: [1, 1, 2, 2] });
     }
 
@@ -39,9 +43,15 @@ function App() {
     };
   }, [block]);
 
+  // console.log(savingBlock);
+
   return (
     <div className="bord">
       <CreatingBlock block={block} />
+
+      {savingBlock.map((item) => {
+        return <CreatingBlock key={item.aria[1] + item.aria[3]} block={item} />;
+      })}
     </div>
   );
 }

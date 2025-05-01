@@ -47,8 +47,8 @@ const block = [
 ];
 
 function eachBlock() {
-  return {
-    r1: [
+  return [
+    [
       false,
       false,
       false,
@@ -62,7 +62,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r2: [
+    [
       false,
       false,
       false,
@@ -76,7 +76,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r3: [
+    [
       false,
       false,
       false,
@@ -90,7 +90,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r4: [
+    [
       false,
       false,
       false,
@@ -104,7 +104,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r5: [
+    [
       false,
       false,
       false,
@@ -118,7 +118,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r6: [
+    [
       false,
       false,
       false,
@@ -132,7 +132,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r7: [
+    [
       false,
       false,
       false,
@@ -146,7 +146,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r8: [
+    [
       false,
       false,
       false,
@@ -160,7 +160,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r9: [
+    [
       false,
       false,
       false,
@@ -174,7 +174,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r10: [
+    [
       false,
       false,
       false,
@@ -188,7 +188,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r11: [
+    [
       false,
       false,
       false,
@@ -202,7 +202,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r12: [
+    [
       false,
       false,
       false,
@@ -216,7 +216,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r13: [
+    [
       false,
       false,
       false,
@@ -230,7 +230,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r14: [
+    [
       false,
       false,
       false,
@@ -244,7 +244,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r15: [
+    [
       false,
       false,
       false,
@@ -258,7 +258,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r16: [
+    [
       false,
       false,
       false,
@@ -272,7 +272,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r17: [
+    [
       false,
       false,
       false,
@@ -286,7 +286,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r18: [
+    [
       false,
       false,
       false,
@@ -300,7 +300,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r19: [
+    [
       false,
       false,
       false,
@@ -314,7 +314,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r20: [
+    [
       false,
       false,
       false,
@@ -328,7 +328,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r21: [
+    [
       false,
       false,
       false,
@@ -342,7 +342,7 @@ function eachBlock() {
       false,
       false,
     ],
-    r22: [
+    [
       false,
       false,
       false,
@@ -356,7 +356,7 @@ function eachBlock() {
       false,
       false,
     ],
-  };
+  ];
 }
 
 // let shape;
