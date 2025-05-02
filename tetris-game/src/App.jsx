@@ -1,49 +1,50 @@
 // https://chatgpt.com/share/68111244-5a34-8004-b729-b52986dda532
 
 import React, { useEffect } from "react";
-import { eachBlock } from "./logic/shape";
 import { randomShape, randomNum } from "./logic/randomNum";
 import { isFree } from "./logic/helper";
 import CreatingBlock from "./components/CreatingBlock";
-import Block from "./components/Block";
 
 function App() {
-  // const [blockBool, setBlockBool] = React.useState(eachBlock());
   const [savingBlock, setSavingBlock] = React.useState([]);
   const [block, setBlock] = React.useState({
     ...randomShape(),
     angle: 0,
-    aria: [1, 1, 2, 2],
+    aria: [0, 1, 2, 2],
   });
+
+  if (block?.aria[0] === 0) {
+    setBlock((pre) => {
+      const number = randomNum(14 - pre.shape[0].length);
+      return { ...pre, aria: [number, 1, number + 1, 2] };
+    });
+  }
 
   useEffect(() => {
     let interval;
     if (block) {
-      interval = setInterval(() => {
-        if (isFree(block)) {
-          clearInterval(interval);
-          setSavingBlock((pre) => [...pre, block]);
-          setBlock();
-        } else {
+      if (isFree(block)) {
+        clearInterval(interval);
+        setSavingBlock((pre) => [...pre, block]);
+        setBlock();
+      } else {
+        interval = setInterval(() => {
           setBlock((prev) => ({
             ...prev,
             aria: prev.aria.map((item, index) => {
               return index === 1 || index === 3 ? item + 1 : item;
             }),
           }));
-        }
-      }, 500);
+        }, 100);
+      }
     } else {
-      
-      setBlock({ ...randomShape(), angle: 0, aria: [1, 1, 2, 2] });
+      setBlock({ ...randomShape(), angle: 0, aria: [0, 1, 1, 2] });
     }
 
     return () => {
       clearInterval(interval);
     };
   }, [block]);
-
-  // console.log(savingBlock);
 
   return (
     <div className="bord">
