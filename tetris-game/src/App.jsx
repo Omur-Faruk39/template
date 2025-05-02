@@ -46,6 +46,22 @@ function App() {
     };
   }, [block]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleKeyDown = (e) => {
+    console.log(e);
+    if (e.key === "ArrowUp") {
+      setBlock((pre) => ({ ...pre, angle: pre.angle + 1 }));
+    }
+    console.log(e.key === "ArrowRight");
+  };
+
   return (
     <div className="bord">
       <CreatingBlock block={block} />
