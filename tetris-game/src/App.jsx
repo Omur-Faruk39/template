@@ -35,7 +35,7 @@ function App() {
               return index === 1 || index === 3 ? item + 1 : item;
             }),
           }));
-        }, 100);
+        }, 500);
       }
     } else {
       setBlock({ ...randomShape(), angle: 0, aria: [0, 1, 1, 2] });
@@ -46,7 +46,7 @@ function App() {
     };
   }, [block]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -55,11 +55,10 @@ function App() {
   }, []);
 
   const handleKeyDown = (e) => {
-    console.log(e);
+    // console.log(e);
     if (e.key === "ArrowUp") {
-      setBlock((pre) => ({ ...pre, angle: pre.angle + 1 }));
+      setBlock((pre) => ({ ...pre, angle: pre.angle < 3 ? pre.angle + 1 : 0 }));
     }
-    console.log(e.key === "ArrowRight");
   };
 
   return (
