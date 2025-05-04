@@ -7,7 +7,11 @@ function CreatingBlock({ block }) {
   return (
     <>
       {arr.map((item, index) => (
-        <Block key={`${index + item[1]}`} color={block.color} position={item} />
+        <Block
+          key={`${index + item[1] + block.color}`}
+          color={block.color}
+          position={item}
+        />
       ))}
     </>
   );

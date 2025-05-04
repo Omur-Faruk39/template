@@ -1,4 +1,4 @@
-import { angle, eachBlock } from "./shape";
+import { eachBlock } from "./shape";
 
 function isFree(block) {
   let boolian = false;
@@ -33,7 +33,6 @@ function blockArr(block) {
     block?.shape?.forEach((i1, in1) => {
       i1.forEach((i2, in2) => {
         if (i2) {
-          // console.log(block.shape);
           arr.push([
             in1 + block?.aria[1],
             in2 + block?.aria[0],
@@ -43,55 +42,6 @@ function blockArr(block) {
         }
       });
     });
-  } else if (block?.angle === 1) {
-    angle[block?.angle - 1][block?.index].shape.forEach((i1, in1) => {
-      i1.forEach((i2, in2) => {
-        if (i2) {
-          // console.log("hel");
-          arr.push([
-            in1 + block?.aria[1],
-            in2 + block?.aria[0],
-            in1 + block?.aria[3],
-            in2 + block?.aria[2],
-          ]);
-          // console.log(arr);
-        }
-      });
-    });
-  } else if (block?.angle === 2) {
-    angle[block?.angle - 1][block?.index].shape.forEach((i1, in1) => {
-      i1.forEach((i2, in2) => {
-        if (i2) {
-          // console.log("hel");
-          arr.push([
-            in1 + block?.aria[1],
-            in2 + block?.aria[0],
-            in1 + block?.aria[3],
-            in2 + block?.aria[2],
-          ]);
-          // console.log(arr);
-        }
-      });
-    });
-  } else {
-    angle[block?.angle - 1][block?.index].shape.forEach((i1, in1) => {
-      i1.forEach((i2, in2) => {
-        if (i2) {
-          // console.log("hel");
-          arr.push([
-            in1 + block?.aria[1],
-            in2 + block?.aria[0],
-            in1 + block?.aria[3],
-            in2 + block?.aria[2],
-          ]);
-          // console.log(arr);
-        }
-      });
-    });
-  }
-
-  if (arr.length !== 4) {
-    console.log(arr);
   }
 
   return arr;
