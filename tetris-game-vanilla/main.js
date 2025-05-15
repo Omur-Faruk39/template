@@ -11,17 +11,20 @@ let varticalPosition;
 let interval;
 let shapeIndex;
 
-if (creatingBlock.length === 0) {
-  shapeIndex = randomNum(7);
-  varticalPosition = randomNum(12 - shape[shapeIndex].shape[0].length);
-  creatingBlock = creatingBlockShape({
-    angle,
-    shapeIndex,
-    varticalPosition,
-    horizontalPosition,
-  });
-  main();
+function creator() {
+  if (creatingBlock.length === 0) {
+    shapeIndex = randomNum(7);
+    varticalPosition = randomNum(12 - shape[shapeIndex].shape[0].length);
+    creatingBlock = creatingBlockShape({
+      angle,
+      shapeIndex,
+      varticalPosition,
+      horizontalPosition,
+    });
+    main();
+  }
 }
+creator();
 
 function main() {
   interval = setInterval(() => {
