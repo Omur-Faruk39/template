@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=initial-scale=1.0" />
     <meta name="keywords" content="hello world" />
     <title>hello world</title>
+    <style>
+      h1::selection {
+        color: red;
+      }
+
+      h1 {
+        user-select: text;
+      }
+    </style>
   </head>
   <body>
     <h1>hello world</h1>
-    hello world
+    <p onselectstart="return false;">This text cannot be selected.</p>
   </body>
 </html>
