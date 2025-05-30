@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=initial-scale=1.0" />
     <meta name="keywords" content="hello world" />
     <title>hello world</title>
-    <style>
-      h1::selection {
-        color: red;
-      }
-
-      h1 {
-        user-select: text;
-      }
-    </style>
   </head>
   <body>
-    <h1>hello world</h1>
-    <p onselectstart="return false;">This text cannot be selected.</p>
+    <script>
+      fetch("http://localhost:3000")
+        .then((data) => data.text())
+        .then((data) => {
+          console.log("from then");
+          console.log(data);
+        })
+        .catch((data) => {
+          console.log("from catch");
+          console.log(data);
+        });
+    </script>
   </body>
 </html>

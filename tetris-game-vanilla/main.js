@@ -21,10 +21,8 @@ function creator() {
       varticalPosition,
       horizontalPosition,
     });
-    main();
   }
 }
-creator();
 
 function main() {
   interval = setInterval(() => {
@@ -55,3 +53,6 @@ function renderBlock(arr) {
 
   blocks.map((block) => bord.appendChild(block));
 }
+
+creator();
+main();
