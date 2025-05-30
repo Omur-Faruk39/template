@@ -1,10 +1,12 @@
 import shape from "./helper/shape.js";
 import randomNum from "./helper/randomNum.js";
 import creatingBlockShape from "./helper/creatingBlockShape.js";
+import checker from "./helper/checker.js";
 
 const bord = document.querySelector(".bord");
 
 let horizontalPosition = 0;
+const allBlock = [];
 let creatingBlock = [];
 let angle = 1;
 let varticalPosition;
@@ -21,19 +23,27 @@ function creator() {
       varticalPosition,
       horizontalPosition,
     });
+    main();
   }
 }
 
 function main() {
   interval = setInterval(() => {
-    horizontalPosition += 1;
-    creatingBlock = creatingBlockShape({
-      angle,
-      shapeIndex,
-      varticalPosition,
-      horizontalPosition,
-    });
-    renderBlock(creatingBlock);
+    if (checker()) {
+      horizontalPosition += 1;
+      creatingBlock = creatingBlockShape({
+        angle,
+        shapeIndex,
+        varticalPosition,
+        horizontalPosition,
+      });
+      renderBlock(creatingBlock);
+    }
+    {
+      allBlock.concat(creatingBlock);
+      creatingBlock = [];
+      creator();
+    }
   }, [500]);
 }
 
@@ -55,4 +65,3 @@ function renderBlock(arr) {
 }
 
 creator();
-main();
