@@ -2,6 +2,7 @@ import shape from "./helper/shape.js";
 import randomNum from "./helper/randomNum.js";
 import creatingBlockShape from "./helper/creatingBlockShape.js";
 import checker from "./helper/checker.js";
+import eachBlock from "./helper/eachBlock.js";
 
 const bord = document.querySelector(".bord");
 
@@ -27,9 +28,11 @@ function creator() {
   }
 }
 
+creator();
+
 function main() {
   interval = setInterval(() => {
-    if (checker()) {
+    if (checker(creatingBlock)) {
       horizontalPosition += 1;
       creatingBlock = creatingBlockShape({
         angle,
@@ -38,9 +41,12 @@ function main() {
         horizontalPosition,
       });
       renderBlock(creatingBlock);
-    }
-    {
+    } else {
+      console.log("hello");
       allBlock.concat(creatingBlock);
+      creatingBlock.forEach((value) => {
+        eachBlock[value.xStart - 1][value.yStart - 1] = false;
+      });
       creatingBlock = [];
       creator();
     }
@@ -63,5 +69,3 @@ function renderBlock(arr) {
 
   blocks.map((block) => bord.appendChild(block));
 }
-
-creator();
