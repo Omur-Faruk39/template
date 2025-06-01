@@ -31,8 +31,13 @@ function creator() {
 creator();
 
 function main() {
+  renderBlock(creatingBlock);
+  // console.log(checker(creatingBlock));
+
   interval = setInterval(() => {
-    if (checker(creatingBlock)) {
+    if (!checker(creatingBlock)) {
+      // console.log("hello");
+
       horizontalPosition += 1;
       creatingBlock = creatingBlockShape({
         angle,
@@ -40,13 +45,19 @@ function main() {
         varticalPosition,
         horizontalPosition,
       });
+      console.log(creatingBlock);
       renderBlock(creatingBlock);
     } else {
-      console.log("hello");
+      clearInterval(interval);
       allBlock.concat(creatingBlock);
+
       creatingBlock.forEach((value) => {
-        eachBlock[value.xStart - 1][value.yStart - 1] = false;
+        console.log(value.yStart, value.xStart);
+        // console.log(eachBlock[value.yStart - 1][value.xStart - 1]);
+
+        eachBlock[value.yStart - 2][value.xStart - 1] = false;
       });
+      horizontalPosition = 0;
       creatingBlock = [];
       creator();
     }
@@ -55,6 +66,7 @@ function main() {
 
 function renderBlock(arr) {
   const blocks = [];
+  // console.log(arr);
 
   arr.forEach((item) => {
     const block = document.createElement("div");

@@ -8,16 +8,13 @@
   </head>
   <body>
     <script>
-      fetch("http://localhost:3000")
-        .then((data) => data.text())
-        .then((data) => {
-          console.log("from then");
-          console.log(data);
-        })
-        .catch((data) => {
-          console.log("from catch");
-          console.log(data);
-        });
+      const arr = [0, 0, 0, 0];
+      const value = arr.some((value) => {
+        console.log(value);
+        return value;
+      });
+
+      console.log(value);
     </script>
   </body>
 </html>

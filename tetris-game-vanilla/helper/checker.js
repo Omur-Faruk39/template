@@ -1,16 +1,17 @@
 import eachBlock from "./eachBlock.js";
 
 function checker(blocks) {
-  let isPossible = true;
+  let isPossible = false;
 
-  if (blocks.every((value) => value.xStart === 22)) {
-    return false;
+  if (blocks.some((value) => value.yStart > 21)) {
+    return true;
   }
 
-  isPossible = blocks.every((value) => {
-    return eachBlock[value.xStart][value.yStart - 1];
+  isPossible = blocks.some((value) => {
+    // console.log(eachBlock[value.yStart][value.xStart]);
+    return eachBlock[value.yStart - 1][value.xStart];
   });
-  return true;
+  return isPossible;
 }
 
 export default checker;
