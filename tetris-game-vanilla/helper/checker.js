@@ -8,8 +8,8 @@ function checker(blocks) {
   }
 
   isPossible = blocks.some((value) => {
-    // console.log(eachBlock[value.yStart][value.xStart]);
-    return eachBlock[value.yStart - 1][value.xStart];
+    // console.log(blocks.xStart);
+    return eachBlock[value.yStart - 1][value.xStart - 1];
   });
   return isPossible;
 }

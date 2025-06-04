@@ -7,7 +7,7 @@ function creatingBlockShape({
   horizontalPosition,
 }) {
   const block = [];
-  if (angle === 1) {
+  if (angle) {
     const blockShape = shape[shapeIndex];
 
     blockShape.shape.forEach((item1, index1) => {
