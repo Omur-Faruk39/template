@@ -60,6 +60,7 @@ function main() {
         eachBlock[value.yStart - 2][value.xStart - 1] = true;
       });
       horizontalPosition = 0;
+      angle = 1;
       creatingBlock = [];
       creator();
     }
