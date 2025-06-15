@@ -2,15 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=initial-scale=1.0" />
-    <meta name="keywords" content="hello world" />
-    <title>hello world</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+    <style>
+      input {
+        width: 200px;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
-    <script>
-      const arr = [10, 20, 30, 40];
-
-      arr.reverse().forEach((item, index) => console.log(item, index));
-    </script>
+    <input list="name" placeholder="Enter your name" type="text" />
+    <datalist id="name">
+      <option value="Omur"></option>
+      <option value="Faruk"></option>
+    </datalist>
   </body>
 </html>
